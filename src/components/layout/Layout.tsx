@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
-import { useDocumentTitle } from '../../hooks/useDocumentTitle';
+import { useDocumentTitle } from '../shared/hooks/useDocumentTitle';
 
 export default function Layout() {
 	useDocumentTitle();
