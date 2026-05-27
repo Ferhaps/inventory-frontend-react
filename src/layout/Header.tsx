@@ -64,7 +64,6 @@ export default function Header() {
 			</nav>
 
 			<div className="ml-auto flex items-center">
-				{/* Dark mode toggle — MatSlideToggle equivalent */}
 				<label className="flex items-center gap-2 cursor-pointer text-sm" style={{ minWidth: 120 }}>
 					<Switch checked={isDark} onChange={toggleTheme} size="small" />
 					Dark Mode
