@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import ProtectedRoute from '../components/shared/ProtectedRoute';
+import ProtectedRoute from '../components/shared/components/ProtectedRoute';
 import { Layout, Login, Dashboard, Products, Categories, Users, Log } from './lazyRoutes';
 
 const withSuspense = (Component: React.ComponentType) => (
@@ -13,6 +13,7 @@ export const router = createBrowserRouter([
 	{
 		path: '/login',
 		element: withSuspense(Login),
+		handle: { title: 'Inventory Login' },
 	},
 	{
 		path: '/',
@@ -29,22 +30,27 @@ export const router = createBrowserRouter([
 			{
 				path: 'dashboard',
 				element: withSuspense(Dashboard),
+				handle: { title: 'Inventory Dashboard' },
 			},
 			{
 				path: 'products',
 				element: withSuspense(Products),
+				handle: { title: 'Inventory Products' },
 			},
 			{
 				path: 'categories',
 				element: withSuspense(Categories),
+				handle: { title: 'Inventory Categories' },
 			},
 			{
 				path: 'users',
 				element: withSuspense(Users),
+				handle: { title: 'Inventory Users' },
 			},
 			{
 				path: 'log',
 				element: withSuspense(Log),
+				handle: { title: 'Inventory Log' },
 			},
 		]
 	},
