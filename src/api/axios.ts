@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useAuthStore } from "../stores/auth.store";
+import { toast } from "sonner";
 
 const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
 
@@ -17,7 +18,8 @@ api.interceptors.response.use(null, (error) => {
 		useAuthStore.getState().logout();
 	}
 
-	// show toast here for other errors
+	const message = error.response?.data?.message ?? 'Something went wrong';
+	toast.error(message);
 	return Promise.reject(error);
 });
 
