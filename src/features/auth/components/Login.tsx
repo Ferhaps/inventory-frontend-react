@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useDocumentTitle } from "../../../components/shared/hooks/useDocumentTitle";
 import { useAuthStore } from "../../../stores/auth.store";
 import { useState } from "react";
 import { z } from "zod";
@@ -8,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { login } from "../../../api/auth.api";
 import { Button, CircularProgress, IconButton, InputAdornment, TextField } from "@mui/material";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { useDocumentTitle } from "../../../shared/hooks/useDocumentTitle";
 
 const loginSchema = z.object({
 	email: z.string().email('Invalid email'),

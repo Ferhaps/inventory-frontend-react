@@ -16,8 +16,8 @@ import {
 	MoreVert,
 	Logout,
 } from '@mui/icons-material';
-import { useAuthStore } from '../../stores/auth.store';
-import { useThemeStore } from '../../stores/theme.store';
+import { useAuthStore } from '../stores/auth.store';
+import { useThemeStore } from '../stores/theme.store';
 
 const NAV_ITEMS = [
 	{ label: 'Dashboard', path: '/dashboard', icon: <Dashboard fontSize="small" /> },
@@ -92,7 +92,7 @@ export default function Header() {
 				>
 					<MenuItem onClick={handleLogout} sx={{ gap: 1, color: 'error.main' }}>
 						<Logout fontSize="small" />
-						<span>Logout</span>
+						Logout
 					</MenuItem>
 				</Menu>
 			</div>

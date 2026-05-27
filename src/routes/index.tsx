@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import ProtectedRoute from '../components/shared/components/ProtectedRoute';
 import { Layout, Login, Dashboard, Products, Categories, Users, Log } from './lazyRoutes';
+import ProtectedRoute from '../shared/components/ProtectedRoute';
 
 const withSuspense = (Component: React.ComponentType) => (
 	<Suspense fallback={null}>
