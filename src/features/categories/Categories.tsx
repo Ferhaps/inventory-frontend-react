@@ -87,7 +87,6 @@ export default function Categories() {
 				)}
 			</div>
 
-			{/* Row actions menu */}
 			<Menu anchorEl={menuAnchor} open={Boolean(menuAnchor)} onClose={closeMenu}>
 				<MenuItem
 					onClick={() => { setDeleteTarget(menuCategory); closeMenu(); }}
