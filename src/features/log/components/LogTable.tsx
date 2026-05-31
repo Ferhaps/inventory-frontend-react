@@ -42,7 +42,7 @@ export default function LogTable({ logs, isFetching, onScrollEnd }: Props) {
 				<thead>
 					<tr>
 						{['Date', 'Event', 'Data', 'Details'].map((h) => (
-							<th key={h} className="text-left sticky top-0 bg-[var(--surface-color)] z-10 px-3 py-2 font-semibold text-sm w-28">
+							<th key={h} className="text-left sticky top-0 bg-(--surface-color) z-10 px-3 py-2 font-semibold text-sm w-28">
 								{h}
 							</th>
 						))}
@@ -51,7 +51,7 @@ export default function LogTable({ logs, isFetching, onScrollEnd }: Props) {
 				<tbody>
 					{logs.map((log, i) => {
 						return (
-							<tr key={`${log.id}-${i}`} className="border-b hover:bg-[var(--hover-color)]">
+							<tr key={`${log.id}-${i}`} className="border-b hover:bg-(--hover-color)">
 								<td className="px-3 py-2 text-sm whitespace-nowrap">{formatDate(log.timestamp)}</td>
 								<td className="px-3 py-2 text-sm">{snakeCaseParser(log.event)}</td>
 								<td className="px-3 py-2 text-sm">

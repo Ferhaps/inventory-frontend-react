@@ -61,7 +61,7 @@ export default function Dashboard() {
 		<div className="flex flex-col h-full overflow-hidden p-4 w-full">
 			<div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4 shrink-0">
 				{statCards.map((card) => (
-					<div key={card.label} className="p-5 rounded-xl flex items-center gap-4 shadow-md bg-[var(--surface-color)]">
+					<div key={card.label} className="p-5 rounded-xl flex items-center gap-4 shadow-md bg-(--surface-color)">
 						<div className={`rounded-full p-3 ${card.iconClass}`}>
 							{card.icon}
 						</div>
@@ -77,7 +77,7 @@ export default function Dashboard() {
 
 			{!isLoading && (
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1 min-h-0">
-					<div className="p-5 rounded-xl flex flex-col overflow-hidden shadow-md bg-[var(--surface-color)]">
+					<div className="p-5 rounded-xl flex flex-col overflow-hidden shadow-md bg-(--surface-color)">
 						<h2 className="text-lg font-semibold mb-4 shrink-0">Products by Category</h2>
 						{products.length > 0 ? (
 							<div className="flex-1 min-h-0">
@@ -88,7 +88,7 @@ export default function Dashboard() {
 						)}
 					</div>
 
-					<div className="p-5 rounded-xl flex flex-col overflow-hidden shadow-md bg-[var(--surface-color)]">
+					<div className="p-5 rounded-xl flex flex-col overflow-hidden shadow-md bg-(--surface-color)">
 						<h2 className="text-lg font-semibold mb-3 shrink-0">Recent Activity</h2>
 						<div className="flex-1 min-h-0 overflow-hidden">
 							<ActivityFeed logs={logs} />

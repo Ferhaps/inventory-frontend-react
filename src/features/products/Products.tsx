@@ -120,7 +120,7 @@ export default function Products() {
 				</div>
 			</div>
 
-			<div className="overflow-y-auto min-h-[370px] shadow-md rounded">
+			<div className="overflow-y-auto min-h-92.5 shadow-md rounded">
 				{isLoading ? (
 					<div className="flex justify-center items-center h-40">
 						<CircularProgress />
@@ -128,7 +128,7 @@ export default function Products() {
 				) : (
 					<table>
 						<thead>
-							<tr className="border-b sticky top-0 bg-[var(--surface-color)] z-10">
+							<tr className="border-b sticky top-0 bg-(--surface-color) z-10">
 								<th className="text-left px-4 py-3 font-semibold text-lg">Name</th>
 								<th className="text-left px-4 py-3 font-semibold text-lg">Quantity</th>
 								<th className="text-left px-4 py-3 font-semibold text-lg">Date created</th>
@@ -144,7 +144,7 @@ export default function Products() {
 								const isDirty = editedQty !== product.quantity;
 
 								return (
-									<tr key={product.id} className="border-b hover:bg-[var(--hover-color)]">
+									<tr key={product.id} className="border-b hover:bg-(--hover-color)">
 										<td className="px-4 py-2">{product.name}</td>
 										<td className="px-4 py-3">
 											<div className="flex items-center gap-3">

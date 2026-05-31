@@ -137,7 +137,7 @@ export default function Log() {
 	return (
 		<LocalizationProvider dateAdapter={AdapterDateFns}>
 			<div className="w-full h-full flex overflow-hidden">
-				<div className="min-w-[380px] pr-4 overflow-y-auto h-full border-r pl-4 pt-2">
+				<div className="min-w-95 pr-4 overflow-y-auto h-full border-r pl-4 pt-2">
 					<div className="flex items-center py-2">
 						<span className="font-bold text-xl">Filters</span>
 						{hasActiveFilters && (
