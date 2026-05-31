@@ -56,7 +56,6 @@ export default function Log() {
 	const allProducts = productsQ.data ?? [];
 	const allCategories = categoriesQ.data ?? [];
 
-	// Logs state — managed manually (not useQuery) because it's POST + paginated
 	const [logs, setLogs] = useState<import('../../types').Log[]>([]);
 
 	const buildBody = useCallback((size: number): LogBody => {
@@ -83,7 +82,6 @@ export default function Log() {
 		}
 	}, [buildBody]);
 
-	// Re-fetch when any filter changes
 	useEffect(() => {
 		setPageSize(INITIAL_PAGE_SIZE);
 		setStopScrolling(false);
@@ -112,7 +110,6 @@ export default function Log() {
 	const handleMoreFilterClick = (filter: QuickDateFilter, index: number) => {
 		applyDateFilter(filter);
 		setMenuAnchor(null);
-		// Swap with first quick filter
 		setQuickFilters((prev) => {
 			const next = [...prev];
 			const displaced = next[0];

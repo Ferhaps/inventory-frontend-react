@@ -30,10 +30,8 @@ export default function Products() {
 	const [deleteTarget, setDeleteTarget] = useState<Product | null>(null);
 	const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
 	const [menuProduct, setMenuProduct] = useState<Product | null>(null);
-	// track edited quantities locally: productId -> newQuantity
 	const [editedQuantities, setEditedQuantities] = useState<Record<string, number>>({});
 
-	// Set first category as default once loaded
 	const activeCategoryId = currentCategoryId || categories[0]?.id || '';
 
 	const filteredProducts = useMemo(() => {

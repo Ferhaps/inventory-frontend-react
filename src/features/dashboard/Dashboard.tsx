@@ -11,7 +11,6 @@ import { getLogs } from '../../api/log.api';
 const LOW_STOCK_THRESHOLD = 20;
 
 export default function Dashboard() {
-	// useQueries replaces forkJoin — all requests fire in parallel
 	const [productsQ, categoriesQ, usersQ, logsQ] = useQueries({
 		queries: [
 			{ queryKey: ['products'], queryFn: getProducts },
