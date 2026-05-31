@@ -1,6 +1,6 @@
 import { useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CircularProgress, Tooltip } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import type { Log } from '../../../types';
 import { snakeCaseParser } from '../../../lib/utils';
 
@@ -28,8 +28,8 @@ export default function LogTable({ logs, isFetching, onScrollEnd }: Props) {
 		}
 	}, [onScrollEnd]);
 
-	const handleNavigate = (route: string, id: string | undefined, isDeleted: boolean) => {
-		if (id && !isDeleted) navigate(`/${route}`);
+	const handleNavigate = (route: string) => {
+		navigate(`/${route}`);
 	};
 
 	return (
@@ -50,7 +50,6 @@ export default function LogTable({ logs, isFetching, onScrollEnd }: Props) {
 				</thead>
 				<tbody>
 					{logs.map((log, i) => {
-						const isDeleted = log.event.includes('DELETE');
 						return (
 							<tr key={`${log.id}-${i}`} className="border-b hover:bg-gray-50">
 								<td className="px-3 py-2 text-sm whitespace-nowrap">{formatDate(log.timestamp)}</td>
@@ -60,40 +59,34 @@ export default function LogTable({ logs, isFetching, onScrollEnd }: Props) {
 										{log.user && (
 											<>
 												<span className="text-gray-500">User:</span>
-												<Tooltip title={isDeleted ? 'Deleted' : ''}>
-													<span
-														className={!isDeleted ? 'underline cursor-pointer hover:text-[#009ddc]' : ''}
-														onClick={() => handleNavigate('users', log.user?.id, isDeleted)}
-													>
-														{log.user.email || '-'}
-													</span>
-												</Tooltip>
+												<span
+													className="underline cursor-pointer hover:text-[#009ddc]"
+													onClick={() => handleNavigate('users')}
+												>
+													{log.user.email || '-'}
+												</span>
 											</>
 										)}
 										{log.product && (
 											<>
 												<span className="text-gray-500 ml-1">Product:</span>
-												<Tooltip title={isDeleted ? 'Deleted' : ''}>
-													<span
-														className={!isDeleted ? 'underline cursor-pointer hover:text-[#009ddc]' : ''}
-														onClick={() => handleNavigate('products', log.product?.id, isDeleted)}
-													>
-														{log.product.name || '-'}
-													</span>
-												</Tooltip>
+												<span
+													className="underline cursor-pointer hover:text-[#009ddc]"
+													onClick={() => handleNavigate('products')}
+												>
+													{log.product.name || '-'}
+												</span>
 											</>
 										)}
 										{log.category && (
 											<>
 												<span className="text-gray-500 ml-1">Category:</span>
-												<Tooltip title={isDeleted ? 'Deleted' : ''}>
-													<span
-														className={!isDeleted ? 'underline cursor-pointer hover:text-[#009ddc]' : ''}
-														onClick={() => handleNavigate('categories', log.category?.id, isDeleted)}
-													>
-														{log.category.name || '-'}
-													</span>
-												</Tooltip>
+												<span
+													className="underline cursor-pointer hover:text-[#009ddc]"
+													onClick={() => handleNavigate('categories')}
+												>
+													{log.category.name || '-'}
+												</span>
 											</>
 										)}
 									</div>
