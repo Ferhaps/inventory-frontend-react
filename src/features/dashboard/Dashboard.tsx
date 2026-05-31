@@ -60,7 +60,6 @@ export default function Dashboard() {
 
 	return (
 		<div className="flex flex-col h-full overflow-hidden p-4 w-full">
-			{/* Stat cards */}
 			<div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4 shrink-0">
 				{statCards.map((card) => (
 					<div key={card.label} className="p-5 rounded-xl flex items-center gap-4 shadow-md bg-white">
@@ -77,7 +76,6 @@ export default function Dashboard() {
 				))}
 			</div>
 
-			{/* Panels */}
 			{!isLoading && (
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-4 flex-1 min-h-0">
 					<div className="p-5 rounded-xl flex flex-col overflow-hidden shadow-md bg-white">
