@@ -36,7 +36,6 @@ export default function Log() {
 	const [productInput, setProductInput] = useState('');
 	const [categoryInput, setCategoryInput] = useState('');
 
-	const [pageSize, setPageSize] = useState(INITIAL_PAGE_SIZE);
 	const [stopScrolling, setStopScrolling] = useState(false);
 	const [isFetching, setIsFetching] = useState(false);
 
@@ -71,8 +70,7 @@ export default function Log() {
 		return body;
 	}, [selectedEvent, selectedUserId, selectedProductId, selectedCategoryId, dateRange]);
 
-	const fetchLogs = useCallback(async (size: number, isInit: boolean) => {
-		if (isInit) setLogs([]);
+	const fetchLogs = useCallback(async (size: number) => {
 		try {
 			const result = await getLogs(buildBody(size));
 			setLogs(result);
@@ -83,17 +81,14 @@ export default function Log() {
 	}, [buildBody]);
 
 	useEffect(() => {
-		setPageSize(INITIAL_PAGE_SIZE);
-		setStopScrolling(false);
-		fetchLogs(INITIAL_PAGE_SIZE, true);
-	}, [selectedEvent, selectedUserId, selectedProductId, selectedCategoryId, dateRange]);
+		fetchLogs(INITIAL_PAGE_SIZE);
+	}, [fetchLogs]);
 
 	const handleScrollEnd = () => {
 		if (isFetching || stopScrolling) return;
-		const nextSize = pageSize + INITIAL_PAGE_SIZE;
-		setPageSize(nextSize);
+		const nextSize = logs.length + INITIAL_PAGE_SIZE;
 		setIsFetching(true);
-		fetchLogs(nextSize, false);
+		fetchLogs(nextSize);
 	};
 
 	const resetTableScroll = () => {
