@@ -16,7 +16,6 @@ import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRegisterUser } from '../hooks/useUsers';
-import type { User } from '../../../types';
 
 const schema = z
 	.object({
@@ -40,7 +39,7 @@ type RegisterForm = z.infer<typeof schema>;
 
 type Props = {
 	open: boolean;
-	onClose: (user?: User) => void;
+	onClose: () => void;
 };
 
 export default function RegisterUserDialog({ open, onClose }: Props) {
@@ -65,9 +64,9 @@ export default function RegisterUserDialog({ open, onClose }: Props) {
 	const onSubmit = (data: RegisterForm) => {
 		const { ...body } = data;
 		registerUser(body, {
-			onSuccess: (user) => {
+			onSuccess: () => {
 				reset();
-				onClose(user);
+				onClose();
 			},
 		});
 	};

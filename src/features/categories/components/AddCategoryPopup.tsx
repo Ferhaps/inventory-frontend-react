@@ -11,7 +11,6 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useAddCategory } from '../hooks/useCategories';
-import type { Category } from '../../../types';
 
 const schema = z.object({
 	name: z.string().min(1, 'Category name is required'),
@@ -21,7 +20,7 @@ type CategoryForm = z.infer<typeof schema>;
 
 type Props = {
 	open: boolean;
-	onClose: (category?: Category) => void;
+	onClose: () => void;
 };
 
 export default function AddCategoryDialog({ open, onClose }: Props) {

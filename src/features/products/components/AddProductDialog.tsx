@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useAddProduct } from '../hooks/useProducts';
-import type { Category, Product } from '../../../types';
+import type { Category } from '../../../types';
 
 const schema = z.object({
 	name: z.string().min(1, 'Product name is required'),
@@ -22,7 +22,7 @@ type Props = {
 	open: boolean;
 	categories: Category[];
 	currentCategoryId: string;
-	onClose: (product?: Product) => void;
+	onClose: () => void;
 };
 
 export default function AddProductDialog({ open, categories, currentCategoryId, onClose }: Props) {
@@ -51,13 +51,13 @@ export default function AddProductDialog({ open, categories, currentCategoryId, 
 				categoryId: currentCategoryId || categories[0]?.id || '',
 			});
 		}
-	}, [open]);
+	}, [open, categories, currentCategoryId, reset]);
 
 	const handleClose = () => { reset(); onClose(); };
 
 	const onSubmit = (data: AddProductForm) => {
 		addProduct(data, {
-			onSuccess: (product) => { reset(); onClose(product); },
+			onSuccess: () => { reset(); onClose(); },
 		});
 	};
 
