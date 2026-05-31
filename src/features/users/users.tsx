@@ -59,7 +59,7 @@ export default function Users() {
 				) : (
 					<table>
 						<thead>
-							<tr className="border-b sticky top-0 bg-white z-10">
+							<tr className="border-b sticky top-0 bg-[var(--surface-color)] z-10">
 								<th className="text-left px-4 py-3 font-semibold text-lg">Email</th>
 								<th className="text-left px-4 py-3 font-semibold text-lg">Role</th>
 								{isAdmin && (
@@ -69,7 +69,7 @@ export default function Users() {
 						</thead>
 						<tbody>
 							{users.map((user) => (
-								<tr key={user.id} className="border-b hover:bg-gray-50">
+								<tr key={user.id} className="border-b hover:bg-[var(--hover-color)]">
 									<td className="px-4 py-2">{user.email}</td>
 									<td className="px-4 py-2">{user.role}</td>
 									{isAdmin && (

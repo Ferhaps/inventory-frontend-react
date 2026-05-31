@@ -58,7 +58,7 @@ export default function Categories() {
 				) : (
 					<table>
 						<thead>
-							<tr className="border-b sticky top-0 bg-white z-10">
+							<tr className="border-b sticky top-0 bg-[var(--surface-color)] z-10">
 								<th className="text-left px-4 py-3 font-semibold text-lg">Name</th>
 								<th className="text-left px-4 py-3 font-semibold text-lg">Date created</th>
 								<th className="text-left px-4 py-3 font-semibold text-lg">Date updated</th>
@@ -69,7 +69,7 @@ export default function Categories() {
 						</thead>
 						<tbody>
 							{categories.map((category) => (
-								<tr key={category.id} className="border-b hover:bg-gray-50">
+								<tr key={category.id} className="border-b hover:bg-[var(--hover-color)]">
 									<td className="px-4 py-2">{category.name}</td>
 									<td className="px-4 py-2">{formatDate(category.createdAt)}</td>
 									<td className="px-4 py-2">{formatDate(category.updatedAt)}</td>

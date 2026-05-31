@@ -42,8 +42,12 @@ export default function Header() {
 
 	return (
 		<header
-			className="flex items-center gap-8 text-white border-b border-black/10 pr-4"
-			style={{ backgroundColor: 'var(--primary-color)', minHeight: 'var(--header-height)' }}
+			className="flex items-center gap-8 text-white pr-4"
+			style={{
+				backgroundColor: isDark ? '#1a1a1a' : 'var(--primary-color)',
+				borderBottom: isDark ? '1px solid rgba(255, 255, 255, 0.12)' : '1px solid rgba(0, 0, 0, 0.1)',
+				minHeight: 'var(--header-height)',
+			}}
 		>
 			<nav className="flex items-center gap-4 ml-4">
 				{NAV_ITEMS.map((item) => (

@@ -17,7 +17,7 @@ export default function ActivityFeed({ logs }: Props) {
 	return (
 		<div className="flex flex-col gap-1 overflow-auto h-full">
 			{logs.map((log) => (
-				<div key={log.id} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-50">
+				<div key={log.id} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[var(--hover-color)]">
 					<div className="w-2 h-2 rounded-full bg-blue-400 shrink-0" />
 					<div className="flex-1 min-w-0">
 						<div className="font-medium text-sm truncate">
