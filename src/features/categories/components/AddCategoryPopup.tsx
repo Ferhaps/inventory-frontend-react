@@ -41,9 +41,9 @@ export default function AddCategoryDialog({ open, onClose }: Props) {
 
 	const onSubmit = (data: CategoryForm) => {
 		addCategory(data.name, {
-			onSuccess: (category) => {
+			onSuccess: () => {
 				reset();
-				onClose(category);
+				onClose();
 			},
 		});
 	};
