@@ -99,7 +99,7 @@ export default function Categories() {
 			<AddCategoryDialog open={addOpen} onClose={() => setAddOpen(false)} />
 			<DeleteConfirmDialog
 				open={Boolean(deleteTarget)}
-				label={`category: ${deleteTarget?.name ?? ''}`}
+				label={`category: ${deleteTarget?.name}. Keep in mind that all the products that belong to this category will be deleted as well`}
 				onConfirm={handleDeleteConfirm}
 				onClose={() => setDeleteTarget(null)}
 			/>
